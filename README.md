@@ -8,11 +8,7 @@ But cant be read as markdown file in `doc/mds/`
 ### install mkdocs
 unix based OS 
 ```
-pip3 install mkdocs
-```
-windows
-```
-pip install mkdocs
+pip3 install Markdown
 ```
 
 
