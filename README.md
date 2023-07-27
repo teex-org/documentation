@@ -5,7 +5,7 @@ But cant be read as markdown file in `doc/mds/`
 
 ## Build it
 
-### install mkdocs
+### install Markdown
 unix based OS 
 ```
 pip3 install Markdown
