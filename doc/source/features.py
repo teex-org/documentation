@@ -48,7 +48,7 @@ def info(page:str):
     return re.sub(pattern, replacement, page)
 def big_info(page:str):
     pattern = r"ii-(.*?)-ii"
-    replacement = r"<div class='info'>⚠️  \1</div>\n"
+    replacement = r"<div class='info'>ℹ️  \1</div>\n"
     return re.sub(pattern, replacement, page,flags=re.DOTALL)
 
 
