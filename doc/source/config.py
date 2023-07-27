@@ -1,6 +1,6 @@
 class Config :
     doc_title = "Teex Docs"
-    root_dir = "/Users/pro/Desktop/teex/doc/doc" # path of the doc dir, where you store all .md ... 
+    root_dir = "" # path to the doc/ dir, default value $ pwd
     css = ['/rsc/style.css'] # path of css stylsheat FROM the root_dir
     script = [root_dir + "/rsc/shiki.js"] # path of importing script
     head = ""
