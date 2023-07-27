@@ -1,7 +1,7 @@
 # Doc Teex
 
-This doc need to be build and open in brawser.
-But cant be reade as markdown file in `doc/mds/`
+This doc need to be build and open in browser.
+But cant be read as markdown file in `doc/mds/`
 
 ## Build it
 
