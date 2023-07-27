@@ -1,0 +1,1 @@
+![Sequence diagram of backend](rsc/img/sequence_backend.png)
