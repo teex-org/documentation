@@ -7,13 +7,13 @@ import markdown
 
 
 if Config.root_dir == '':
-    Config.root_dir = os.popen('pwd').read()
+    Config.root_dir = os.popen('pwd').read().replace('\n','')
 
 Config.generate_head()
 
 
-html_dir        =   Config.root_dir + '/pages/'
-md_dir          =   Config.root_dir + '/mds/'
+html_dir        =   Config.root_dir + '/doc/pages/'
+md_dir          =   Config.root_dir + '/doc/mds/'
 
 def sort_path(page):
     section, category, md_name =  page.replace(md_dir,'').split('/')
@@ -104,8 +104,7 @@ for md_path in all_md_pages:
             }
     if page.category not in tree[section]['categories']:
         tree[section]['categories'].append(page.category)
-        if rm_prefix_number(page.category) != '':
-            tree[section]['nav'] += f"<p>{rm_prefix_number(page.category)}</p>\n"
+        tree[section]['nav'] += f"<p>{rm_prefix_number(page.category)}</p>\n"
     tree[section]['nav'] += page.get_nav()
 
 
