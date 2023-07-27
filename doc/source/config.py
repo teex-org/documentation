@@ -1,8 +1,8 @@
 class Config :
     doc_title = "Teex Docs"
     root_dir = "" # path to the doc/ dir, default value $ pwd
-    css = ['/rsc/style.css'] # path of css stylsheat FROM the root_dir
-    script = [root_dir + "/rsc/shiki.js"] # path of importing script
+    css = ['/doc/rsc/style.css'] # path of css stylsheat FROM the root_dir
+    script = [root_dir + "/doc/rsc/shiki.js"] # path of importing script
     head = ""
 
     def generate_head():
