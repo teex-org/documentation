@@ -12,7 +12,7 @@ if Config.root_dir == '':
 Config.generate_head()
 
 
-html_dir        =   Config.root_dir + '/doc/pages/'
+html_dir        =   './pages/'
 md_dir          =   Config.root_dir + '/doc/mds/'
 
 def sort_path(page):
@@ -43,7 +43,7 @@ class Page:
         self.section, self.category, self.md_name =  md_path.replace(md_dir,'').split('/')
         self.display_name = rm_prefix_number(self.md_name.replace('.md',''))
         self.html_name = self.md_name.replace('.md','.html')
-        self.html_dir = f"{html_dir}{self.section}/{self.category}/"
+        self.html_dir = f"./pages/{self.section}/{self.category}/"
         
     def get_nav(self,active=False):
         class_active = ""
@@ -76,7 +76,7 @@ class Page:
 
         # create dir and create pages
         os.makedirs(self.html_dir, exist_ok=True) 
-        with open(self.html_dir + self.html_name ,'w') as html_file:
+        with open(Config.root_dir + self.html_dir[1:] + self.html_name ,'w') as html_file:
             html_file.write(md)
 
 
@@ -110,7 +110,7 @@ for md_path in all_md_pages:
 
 # creating select <header> 
 select = "<select onchange='window.location.href = this.value'>\n"
-select += f"<option value='{html_dir + 'home.html'}'>home</option>\n"
+select += f"<option value='{'home.html'}'>home</option>\n"
 for section in header_section_option:
     
     select += f"<option value='{tree[section]['first_page']}'>{rm_prefix_number(section)}</option>\n"
@@ -134,7 +134,7 @@ home = f"""
 </body>
 """
 os.makedirs(html_dir, exist_ok=True) 
-with open(html_dir + 'home.html' ,'w') as html_file:
+with open(Config.root_dir + 'home.html' ,'w') as html_file:
     html_file.write(home)
 
 
