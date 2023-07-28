@@ -11,9 +11,9 @@ class Config :
         for css in Config.css:
             print(Config.root_dir)
             print(css)
-            head += f"<link rel='stylesheet' href='../rsc/{css}'>\n"
+            head += f"<link rel='stylesheet' href='../../../rsc/{css}'>\n"
         for script in Config.local_script:
-            head += f'<script src="../rsc/{script}"></script>'
+            head += f'<script src="../../../rsc/{script}"></script>'
         for script in Config.script:
             head += f'<script src="{script}"></script>'
         Config.head = "<head>\n" + head + "\n</head>"

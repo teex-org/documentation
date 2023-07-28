@@ -7,7 +7,7 @@ import markdown
 
 
 if Config.root_dir == '':
-    Config.root_dir = os.popen('pwd').read().replace('\n','')
+    Config.root_dir = os.popen('pwd').read().replace('\n','') + '/doc'
 
 Config.generate_head()
 
@@ -16,7 +16,7 @@ html_dir        =   './pages/'
 md_dir          =   Config.root_dir + '/doc/mds/'
 
 def sort_path(page):
-    section, category, md_name =  page.replace(md_dir,'').split('/')
+    section, category, md_name =  page.replace('./doc/mds/','').split('/')
     r = 0
     nb_section=re.findall('^(.*?)-',section)
     if (nb_section != []) and (nb_section != ['']):
@@ -40,7 +40,7 @@ def rm_prefix_number(word):
 class Page:
     def __init__(self,md_path):
         self.md_path = md_path
-        self.section, self.category, self.md_name =  md_path.replace(md_dir,'').split('/')
+        self.section, self.category, self.md_name =  md_path.replace('./doc/mds/','').split('/')
         self.display_name = rm_prefix_number(self.md_name.replace('.md',''))
         self.html_name = self.md_name.replace('.md','.html')
         self.html_dir = f"./pages/{self.section}/{self.category}/"
@@ -49,7 +49,7 @@ class Page:
         class_active = ""
         if active:
             class_active = " class='active'"          
-        return f"<a{class_active} href='{self.html_dir+self.html_name}'>{self.display_name}</a>\n"
+        return f"<a{class_active} href='../../../{self.html_dir+self.html_name}'>{self.display_name}</a>\n"
     
     def generate(self,select,nav):
         md = ''
@@ -75,15 +75,16 @@ class Page:
         md = Config.head + md # add head from the head in config
 
         # create dir and create pages
-        os.makedirs(self.html_dir, exist_ok=True) 
+        os.makedirs(Config.root_dir + self.html_dir[1:] , exist_ok=True) 
+        print(Config.root_dir + self.html_dir[1:] + self.html_name )
         with open(Config.root_dir + self.html_dir[1:] + self.html_name ,'w') as html_file:
             html_file.write(md)
 
 
 
-all_md_pages = os.popen(f"find {md_dir[:-1]} -mindepth 3 -maxdepth 3 -name '*.md'").read().split('\n')[:-1]
+all_md_pages = os.popen(f"find ./doc/mds -mindepth 3 -maxdepth 3 -name '*.md'").read().split('\n')[:-1]
+print(all_md_pages)
 all_md_pages = sorted(all_md_pages, key=sort_path)
-
 
 pages = []
 tree = {}
@@ -124,7 +125,7 @@ for page in pages:
 
 # generate home.html page 
 home = f"""
-{Config.head}
+{Config.head.replace('../../../','')}
 <body id='home'>
 <header><h1>{Config.doc_title}</h1>{select}</header>
 <main>
@@ -134,8 +135,9 @@ home = f"""
 </body>
 """
 os.makedirs(html_dir, exist_ok=True) 
-with open(Config.root_dir + 'home.html' ,'w') as html_file:
+
+with open(Config.root_dir + '/home.html' ,'w') as html_file:
     html_file.write(home)
 
 
-
+print("build")

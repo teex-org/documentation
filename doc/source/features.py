@@ -56,7 +56,7 @@ def big_info(page:str):
 
 def image(page):
     pattern = r"!\[(.*?)\]\((.*?)\)"
-    replacement = fr"<div class='img-cont'><img src='{Config.root_dir}/doc/\2'><p>\1<p></div>\n"
+    replacement = fr"<div class='img-cont'><img src='../../../rsc/img/\2'><p>\1<p></div>\n"
     return re.sub(pattern, replacement, page)
 
 
