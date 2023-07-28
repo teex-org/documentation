@@ -10,7 +10,7 @@
 ```yaml
 {id: integer}
 ```
----
+-
 #### [PUT] /list/?email
 ```yaml
 {           
@@ -18,10 +18,8 @@
     name:   string
 }
 ```
----
+-
 #### [DELETE] /list/?email
 ```yaml
-{
-    id:    integer
-}
+{id: integer}
 ```

@@ -8,7 +8,7 @@
     name:   string
 }
 ```
----
+-
 #### [POST] /user/?email 
 ```yaml
 {name: string}
@@ -16,7 +16,7 @@
 ```yaml      
 {id: new_id}
 ```
----
+-
 #### [PUT] /project/?email
 ```yaml
 {
@@ -24,12 +24,12 @@
     name:   string
 }
 ```
----
+-
 #### [DELETE] /project/?email
 ```yaml
 {id: integer}
 ```
----
+-
 #### [GET] /project/users/?email
 ```yaml
 {id: integer}
@@ -43,7 +43,7 @@
     ]
 }
 ```
----
+-
 #### [PUT] /project/user/?email
 ```yaml
 {
@@ -51,7 +51,7 @@
     email:  string
 }
 ```
----
+-
 #### [PUT] /project/user/owner/?email
 ```yaml
 {
@@ -59,7 +59,7 @@
     email:  string
 }
 ```
----
+-
 #### [GET] /project/lists/?email
 ```yaml
 {id: integer}
@@ -84,5 +84,5 @@
     ]
 }
 ```
----
+-
 #### [DELETE] /project/user?email

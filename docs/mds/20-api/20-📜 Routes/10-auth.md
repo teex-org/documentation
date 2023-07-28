@@ -34,7 +34,7 @@ check token in base
 ```yaml
 {token: string}
 ```
----
+-
 #### [GET] /auth
 get a new token 
 ```yaml
@@ -49,7 +49,7 @@ get a new token
     token : string
 }
 ```
----
+-
 #### [POST] /auth/user
 create accunt and get new token
 ```yaml
@@ -66,7 +66,7 @@ required: [email,name,pwd]
     token : string
 }
 ```
----
+-
 #### [PUT] /auth/user/pwd/?email
 change password and get new token
 ```yaml

@@ -4,14 +4,13 @@
 ```yaml
 {email: string}
 ```
-\>>
 ```yaml
 {
     email: string
     name: string
 }
 ```
----
+-
 #### [PUT] /user
  ```yaml
 {
@@ -29,5 +28,5 @@
     ]
 }
 ```
----
+-
 #### [DELETE] /user/<email>

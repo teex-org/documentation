@@ -26,7 +26,6 @@
     priority:   integer 
 }
 ```
-/>>
 ```yaml         
 {id: string}
 ```
