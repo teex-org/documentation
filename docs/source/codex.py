@@ -111,7 +111,7 @@ for md_path in all_md_pages:
 
 # creating select <header> 
 select = "<select onchange='window.location.href = this.value'>\n"
-select += f"<option value='index.html'>home</option>\n"
+select += f"<option value='{Config.root_dir_web}'>home</option>\n"
 for section in header_section_option:
     select += f"<option value='{Config.root_dir_web + tree[section]['first_page'][1:]}'>{rm_prefix_number(section)}</option>\n"
 select += "</select>\n"
