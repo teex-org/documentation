@@ -62,6 +62,8 @@ header{
     position: absolute;
     width: fit-content;
     right: 0;
+    margin: 18px;
+    position: fixed;
 }
 header h1{
     font-size: 18px;
