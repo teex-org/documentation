@@ -1,37 +1,18 @@
-name: Build and Deploy Docs
-
-
 on:
   push:
     branches:
       - main
-permissions:
+
+permission:
   contents: write
-
-
+  
 jobs:
-  build:
+  create_branch:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.11
-
-      - name: Install dependencies
-        run: pip3 install -r requirements.txt
-
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Build the folder using the script
-        run: |
-          ./build.sh
-          ls
 
       - name: Set up Git
         run: |
@@ -40,9 +21,8 @@ jobs:
 
       - name: Create and switch to the new branch
         run: |
-          git checkout -b gh-pages2
-          touch t.txt
-          ls
-          git add .
-          git commit -m "Build and deploy the folder"
-          git push origin gh-pages2
+          git checkout -b new-branch
+          git restore --source=HEAD open.sh
+          git add open.sh
+          git commit -m "Add open.sh to the new branch"
+          git push origin new-branch
