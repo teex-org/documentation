@@ -69,7 +69,7 @@ class Page:
             select = document.querySelector("select")
             window.addEventListener("load", ()=>{console.log('hehe'); select.style.width = select.options[select.selectedIndex].text.length * 13 + 20 + 'px'}); 
         </script>""" #resize the width depending on content
-        header = f"<header>\n<h1>{Config.doc_title}</h1>\n{select}</header>\n" # add header with select
+        header = f"<header>\n{select}</header>\n" # add header with select
         md = header + md 
         md = wrap(md,'body') 
         md = Config.head + md # add head from the head in config
