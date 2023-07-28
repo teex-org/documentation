@@ -1,6 +1,3 @@
-
-
-
 config = {
     'doc_title' : 'Teex Documentation',
     'css' : ['style.css'], #all css file in /docs/rsc/
