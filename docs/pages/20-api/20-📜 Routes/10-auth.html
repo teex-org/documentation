@@ -61,7 +61,7 @@ Tokens are JSON objects of the following type:</p>
 <p>check token in base</p>
 <pre data-lang='yaml'>{token: string}</pre>
 
-<hr>
+<hr class='small'>
 <h4>[GET] /auth</h4>
 <p>get a new token </p>
 <pre data-lang='yaml'>{
@@ -74,7 +74,7 @@ Tokens are JSON objects of the following type:</p>
     token : string
 }</pre>
 
-<hr>
+<hr class='small'>
 <h4>[POST] /auth/user</h4>
 <p>create accunt and get new token</p>
 <pre data-lang='yaml'>{
@@ -89,7 +89,7 @@ required: [email,name,pwd]
     token : string
 }</pre>
 
-<hr>
+<hr class='small'>
 <h4>[PUT] /auth/user/pwd/?email</h4>
 <p>change password and get new token</p>
 <pre data-lang='yaml'>{pwd: string}</pre>
