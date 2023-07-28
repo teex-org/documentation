@@ -1,6 +1,6 @@
 from typing import List, Optional
 import re
-from config import Config
+from config import config
 
 # ALL TREATMENT
 def treatment(page):

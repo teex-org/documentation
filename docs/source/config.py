@@ -1,22 +1,16 @@
-class Config :
-    doc_title = "Teex Docs"
-    root_dir = "" # path to the doc/ dir, default value $ pwd
-    css = ['style.css'] # path of css stylsheat FROM the root_dir
-    local_script = ["shiki.js"] # path of importing script
-    script = [""]
-    root_dir_web = "https://teex-org.github.io/documentation"
-    head = ""
-
-    def generate_head():
-        head = f'<meta charset="UTF-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>{Config.doc_title}</title>\n'
-        for css in Config.css:
-            print(Config.root_dir)
-            print(css)
-            head += f"<link rel='stylesheet' href='../../../rsc/{css}'>\n"
-        for script in Config.local_script:
-            head += f'<script src="../../../rsc/{script}"></script>'
-        for script in Config.script:
-            head += f'<script src="{script}"></script>'
-        Config.head = "<head>\n" + head + "\n</head>"
 
 
+
+config = {
+    'doc_title' : 'Teex Documentation',
+    'css' : ['style.css'], #all css file in /docs/rsc/
+    'local_sript' : ['shiki.js'], #all script in /docs/rsc/
+    'sript' : [''], #all absolute script (when get from internet)
+
+    # the root_dir is the root path where ACCESS the dir /docs
+    # if you generate local doc in /absolute/path/to/docs/, root_dit will be : /absolute/path/to/
+    # for a docs ni a serveur, the root dir will be http://your.domaine.com/.../ from where you can acces /docs (dont put .../docs at the end)
+    # its not the root dir for building the doc. codex find all data from itself, with relative path
+    # so do not change the strutur or name of dirs, weather codex will be lost
+    'root_dir' : "https://teex-org.github.io/documentation"
+}

@@ -1,19 +1,32 @@
 from features import treatment
 import os
 import re
-from config import Config
+from config import config
 import markdown
 
 
 
-if Config.root_dir == '':
-    Config.root_dir = os.popen('pwd').read().replace('\n','') + '/docs'
+create_root_dir = os.popen('pwd').read().replace('\n','') 
 
+
+
+raise
 Config.generate_head()
 
 
 html_dir        =   './pages/'
-md_dir          =   Config.root_dir + '/docs/mds/'
+docs_dir          =   '../'
+
+
+def generate_head():
+    head = f'<meta charset="UTF-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>{Config.doc_title}</title>\n'
+    for css in config['css']:
+        head += f"<link rel='stylesheet' href='../../../rsc/{css}'>\n"
+    for script in config['local_script']:
+        head += f'<script src="../../../rsc/{script}"></script>'
+    for script in config['script']:
+        head += f'<script src="{script}"></script>'
+    return "<head>\n" + head + "\n</head>"
 
 def sort_path(page):
     section, category, md_name =  page.replace('./docs/mds/','').split('/')
@@ -40,16 +53,16 @@ def rm_prefix_number(word):
 class Page:
     def __init__(self,md_path):
         self.md_path = md_path
-        self.section, self.category, self.md_name =  md_path.replace('./docs/mds/','').split('/')
+        self.section, self.category, self.md_name =  md_path.replace('./docs/mds/','').split('')
         self.display_name = rm_prefix_number(self.md_name.replace('.md',''))
         self.html_name = self.md_name.replace('.md','.html')
-        self.html_dir = f"./pages/{self.section}/{self.category}/"
+        self.html_dir = f"docs/pages/{self.section}/{self.category}/"
         
     def get_nav(self,active=False):
         class_active = ""
         if active:
             class_active = " class='active'"          
-        return f"<a{class_active} href='../../../{self.html_dir+self.html_name}'>{self.display_name}</a>\n"
+        return f"<a{class_active} href='{config['root_dir']}/docs/pages/{self.html_name}'>{self.display_name}</a>\n"
     
     def generate(self,select,nav):
         md = ''
@@ -72,12 +85,11 @@ class Page:
         header = f"<header>\n{select}</header>\n" # add header with select
         md = header + md 
         md = wrap(md,'body') 
-        md = Config.head + md # add head from the head in config
+        md = generate_head() + md # add head from the head in config
 
         # create dir and create pages
-        os.makedirs(Config.root_dir + self.html_dir[1:] , exist_ok=True) 
-        print(Config.root_dir + self.html_dir[1:] + self.html_name )
-        with open(Config.root_dir + self.html_dir[1:] + self.html_name ,'w') as html_file:
+        os.makedirs(self.html_dir , exist_ok=True) 
+        with open( self.html_dir + self.html_name ,'w') as html_file:
             html_file.write(md)
 
 
@@ -111,9 +123,9 @@ for md_path in all_md_pages:
 
 # creating select <header> 
 select = "<select onchange='window.location.href = this.value'>\n"
-select += f"<option value='{Config.root_dir_web}'>home</option>\n"
+select += f"<option value='{config['root_dir']}/docs/pages/index.html'>home</option>\n"
 for section in header_section_option:
-    select += f"<option value='{Config.root_dir_web + tree[section]['first_page'][1:]}'>{rm_prefix_number(section)}</option>\n"
+    select += f"<option value='{config['root_dir']}/{tree[section]['first_page']}'>{rm_prefix_number(section)}</option>\n"
 select += "</select>\n"
 
 
@@ -124,18 +136,18 @@ for page in pages:
 
 # generate home.html page 
 home = f"""
-{Config.head.replace('../../../','')}
+{generate_head()}
 <body id='home'>
 <header>{select}</header>
 <main>
-<h1 class='title'>{Config.doc_title}</h1>
+<h1 class='title'>{config['doc_title']}</h1>
 <p>Chose a section (in the top right) to explore</p>
 </main>
 </body>
 """
-os.makedirs(html_dir, exist_ok=True) 
 
-with open(Config.root_dir + '/index.html' ,'w') as html_file:
+os.makedirs('docs/pages/', exist_ok=True) 
+with open('docs/pages/index.html' ,'w') as html_file:
     html_file.write(home)
 
 
