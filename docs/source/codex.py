@@ -111,7 +111,7 @@ for md_path in all_md_pages:
 
 # creating select <header> 
 select = "<select onchange='window.location.href = this.value'>\n"
-select += f"<option value='{'home.html'}'>home</option>\n"
+select += f"<option value='index.html'>home</option>\n"
 for section in header_section_option:
     
     select += f"<option value='{tree[section]['first_page']}'>{rm_prefix_number(section)}</option>\n"
@@ -136,7 +136,7 @@ home = f"""
 """
 os.makedirs(html_dir, exist_ok=True) 
 
-with open(Config.root_dir + '/home.html' ,'w') as html_file:
+with open(Config.root_dir + '/index.html' ,'w') as html_file:
     html_file.write(home)
 
 
