@@ -1,4 +1,6 @@
 name: Build and Deploy Docs
+permissions:
+  actions: write
 
 on:
   push:
