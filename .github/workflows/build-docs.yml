@@ -37,8 +37,7 @@ jobs:
           rm -r raw .github
           rm .gitignore build.sh open.sh README.md requirements.txt 
 
-          git add docs/pages/
-          git add docs/index.html
+          git add .
           
           git commit -m "Update doc"
           git push origin gh-pages
