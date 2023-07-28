@@ -126,7 +126,7 @@ for page in pages:
 home = f"""
 {Config.head.replace('../../../','')}
 <body id='home'>
-<header><h1>{Config.doc_title}</h1>{select}</header>
+<header>{select}</header>
 <main>
 <h1 class='title'>{Config.doc_title}</h1>
 <p>Chose a section (in the top right) to explore</p>
