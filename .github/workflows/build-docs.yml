@@ -27,19 +27,29 @@ jobs:
       - name: Run build script
         run: ./build.sh
 
-      - name: ls
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Build the folder using the script
         run: |
-          ls
-          ls pages
-          
+          ./build.sh
 
+      - name: Set up Git
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
 
-      # - name: Deploy to gh-pages branch
-      #   run: |
-      #     git config --global user.name "GitHub Actions"
-      #     git config --global user.email "actions@github.com"
-      #     git checkout --orphan gh-pages
-      #     git add doc/home.html
-      #     git commit -m "Update documentation"
-      #     git push -f origin gh-pages
-      #     git checkout main
+      - name: Create and switch to the new branch
+        run: |
+          git checkout gh-pages
+
+      - name: Copy the contents to the new branch
+        run: |
+          cp -r doc/pages/* .
+
+      - name: Commit and push to the new branch
+        run: |
+          git add .
+          git commit -m "Build and deploy the folder"
+          git push origin gh-pages
