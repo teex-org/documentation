@@ -22,7 +22,7 @@ jobs:
       - name: Create and switch to the new branch
         run: |
           git checkout -b new-branch
-          git restore --source=HEAD open.sh
-          git add open.sh
+          cp t.txt new-branch/t.txt
+          git add new-branch/t.txt
           git commit -m "Add open.sh to the new branch"
           git push origin new-branch
