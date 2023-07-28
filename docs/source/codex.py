@@ -49,7 +49,7 @@ class Page:
         class_active = ""
         if active:
             class_active = " class='active'"          
-        return f"<a{class_active} href='../../../{self.html_dir+self.html_name}'>{self.display_name}</a>\n"
+        return f"<a{class_active} href='../../{self.html_dir+self.html_name}'>{self.display_name}</a>\n"
     
     def generate(self,select,nav):
         md = ''
