@@ -40,14 +40,9 @@ jobs:
 
       - name: Create and switch to the new branch
         run: |
-          git checkout gh-pages
-
-      - name: Copy the contents to the new branch
-        run: |
-          cp -r doc/pages/* .
-
-      - name: Commit and push to the new branch
-        run: |
+          git checkout -b gh-pages2
+          touch t.txt
+          ls
           git add .
           git commit -m "Build and deploy the folder"
-          git push origin gh-pages
+          git push origin gh-pages2
