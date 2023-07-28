@@ -1,10 +1,9 @@
 
-### [GET] /task/?email
+#### [GET] /task/?email
 
 ```yaml
 {id: integer}
 ```
-\>>
 ```yaml
 {
     'id':               integer
@@ -17,8 +16,8 @@
     "id_list" :         integer
 }
 ```
----
-### [POST] /task/?email
+-
+#### [POST] /task/?email
 ```yaml
 {    
     id_list:    integer
@@ -31,8 +30,8 @@
 ```yaml         
 {id: string}
 ```
----
-### [PUT] /task/metadata/?email
+-
+#### [PUT] /task/metadata/?email
 ```yaml
 {
     id:         integer
@@ -41,16 +40,16 @@
     (priority): integer
 }
 ```
----
-### [PUT] /task/state/?email
+-
+#### [PUT] /task/state/?email
 ```yaml
 {            
     id:     integer
     state:  integer
 }
 ```
----
-### [DELETE] /task/?email
+-
+#### [DELETE] /task/?email
 ```yaml
 {id: integer}
 ```

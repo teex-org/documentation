@@ -1,8 +1,7 @@
-### [GET] /project/?email
+#### [GET] /project/?email
 ```yaml
 {id: integer}
 ```
-\>>
 ```yaml
 {   
     id:     string
@@ -10,16 +9,15 @@
 }
 ```
 ---
-### [POST] /user/?email 
+#### [POST] /user/?email 
 ```yaml
 {name: string}
 ```
-\>>
 ```yaml      
 {id: new_id}
 ```
 ---
-### [PUT] /project/?email
+#### [PUT] /project/?email
 ```yaml
 {
     id:     integer
@@ -27,16 +25,15 @@
 }
 ```
 ---
-### [DELETE] /project/?email
+#### [DELETE] /project/?email
 ```yaml
 {id: integer}
 ```
 ---
-### [GET] /project/users/?email
+#### [GET] /project/users/?email
 ```yaml
 {id: integer}
 ```
-\>>
 ```yaml
 {
     id_project:     integer
@@ -47,7 +44,7 @@
 }
 ```
 ---
-### [PUT] /project/user/?email
+#### [PUT] /project/user/?email
 ```yaml
 {
     id:     integer
@@ -55,7 +52,7 @@
 }
 ```
 ---
-### [PUT] /project/user/owner/?email
+#### [PUT] /project/user/owner/?email
 ```yaml
 {
     id:     integer
@@ -63,11 +60,10 @@
 }
 ```
 ---
-### [GET] /project/lists/?email
+#### [GET] /project/lists/?email
 ```yaml
 {id: integer}
 ```
-\>>
 ```yaml
 {
     id:     integer
@@ -89,4 +85,4 @@
 }
 ```
 ---
-### [DELETE] /project/user?email
+#### [DELETE] /project/user?email

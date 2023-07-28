@@ -1,6 +1,6 @@
 # routes
 
-### [GET] /user/<email>
+#### [GET] /user/<email>
 ```yaml
 {email: string}
 ```
@@ -12,16 +12,13 @@
 }
 ```
 ---
-### [DELETE] /user/<email>
----
-### [PUT] /user
+#### [PUT] /user
  ```yaml
 {
     name:     string
     pwd:      string
 }
 ```
-\>>
 ```yaml
 {
     projects : [
@@ -32,4 +29,5 @@
     ]
 }
 ```
-
+---
+#### [DELETE] /user/<email>

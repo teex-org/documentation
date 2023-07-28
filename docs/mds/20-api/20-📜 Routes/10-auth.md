@@ -29,13 +29,13 @@ Tokens are JSON objects of the following type:
 
 # Routes
 
-### [GET] /auth/check/
+#### [GET] /auth/check/
 check token in base
 ```yaml
 {token: string}
 ```
 ---
-### [GET] /auth
+#### [GET] /auth
 get a new token 
 ```yaml
 {
@@ -44,14 +44,13 @@ get a new token
 }
 
 ```
-\>>
 ```yaml
 {
     token : string
 }
 ```
 ---
-### [POST] /auth/user
+#### [POST] /auth/user
 create accunt and get new token
 ```yaml
 {
@@ -62,19 +61,17 @@ create accunt and get new token
 required: [email,name,pwd]
 }
 ```
-\>>
 ```yaml
 {
     token : string
 }
 ```
 ---
-### [PUT] /auth/user/pwd/?email
+#### [PUT] /auth/user/pwd/?email
 change password and get new token
 ```yaml
 {pwd: string}
 ```
-\>>
 ```yaml
 {token: string}
 ```
