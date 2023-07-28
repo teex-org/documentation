@@ -49,13 +49,13 @@ class Page:
         self.section, self.category, self.md_name =  md_path.replace('./docs/mds/','').split('/')
         self.display_name = rm_prefix_number(self.md_name.replace('.md',''))
         self.html_name = self.md_name.replace('.md','.html')
-        self.html_dir = f"pages/{self.section}/{self.category}/"
+        self.html_path = f"../../../pages/{self.section}/{self.category}/{self.html_name}"
         
     def get_nav(self,active=False):
         class_active = ""
         if active:
             class_active = " class='active'"          
-        return f"<a{class_active} href='{config['root_dir']}/{self.html_dir}{self.html_name}'>{self.display_name}</a>\n"
+        return f"<a{class_active} href='{self.html_path}'>{self.display_name}</a>\n"
     
     def generate(self,select,nav):
         md = ''
@@ -81,8 +81,9 @@ class Page:
         md = generate_head() + md # add head from the head in config
 
         # create dir and create pages
-        os.makedirs(self.html_dir , exist_ok=True) 
-        with open( self.html_dir + self.html_name ,'w') as html_file:
+        
+        os.makedirs("docs/pages/" + self.section+"/"+self.category , exist_ok=True) 
+        with open( "docs/pages/" + self.section+"/"+self.category+"/" + self.html_name ,'w') as html_file:
             html_file.write(md)
 
 
@@ -104,7 +105,7 @@ for md_path in all_md_pages:
         header_section_option.append(section)
     if not(section in tree):
         tree[section] = {
-            "first_page": config['root_dir'] + '/' + page.html_dir + page.html_name,
+            "first_page": page.html_path,
             'categories':[],
             'nav':''
             }
@@ -116,7 +117,7 @@ for md_path in all_md_pages:
 
 # creating select <header> 
 select = "<select onchange='window.location.href = this.value'>\n"
-select += f"<option value='{config['root_dir']}/docs/pages/index.html'>home</option>\n"
+select += f"<option value='../../../index.html'>home</option>\n"
 for section in header_section_option:
     select += f"<option value='{tree[section]['first_page']}'>{rm_prefix_number(section)}</option>\n"
 select += "</select>\n"
@@ -137,10 +138,10 @@ home = f"""
 <p>Chose a section (in the top right) to explore</p>
 </main>
 </body>
-"""
+""".replace('../../../','')
 
-os.makedirs('docs/pages/', exist_ok=True) 
-with open('docs/pages/index.html' ,'w') as html_file:
+os.makedirs('docs/', exist_ok=True) 
+with open('docs/index.html' ,'w') as html_file:
     html_file.write(home)
 
 

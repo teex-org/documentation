@@ -40,7 +40,6 @@ jobs:
 
       - name: commit push
         run: |
-          touch .nojekyll
           git add .
           git commit -m 'Update doc'
           git push --force origin gh-pages
