@@ -7,7 +7,7 @@ permissions:
   contents: write
   
 jobs:
-  clean_and_fill:
+  build-the-doc:
     runs-on: ubuntu-latest
 
     steps:
