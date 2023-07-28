@@ -5,7 +5,7 @@ config = {
     'doc_title' : 'Teex Documentation',
     'css' : ['style.css'], #all css file in /docs/rsc/
     'local_script' : ['shiki.js'], #all script in /docs/rsc/
-    'sript' : [''], #all absolute script (when get from internet)
+    'script' : [''], #all absolute script (when get from internet)
 
     # the root_dir is the root path where ACCESS the dir /docs
     # if you generate local doc in /absolute/path/to/docs/, root_dit will be : /absolute/path/to/
