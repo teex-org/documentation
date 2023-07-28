@@ -104,7 +104,7 @@ for md_path in all_md_pages:
         header_section_option.append(section)
     if not(section in tree):
         tree[section] = {
-            "first_page": config[''] + page.html_dir + page.html_name,
+            "first_page": config['root_dir'] + '/' + page.html_dir + page.html_name,
             'categories':[],
             'nav':''
             }
