@@ -171,8 +171,7 @@ pre.shiki{
     overflow-x: scroll;
     padding: 12px;
     border-radius: 10px;
-    margin: 0;
-    margin-bottom: 10px;
+    margin: 10px 0;
 }
 pre.shiki::-webkit-scrollbar {
     width: 0;
