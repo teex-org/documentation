@@ -28,16 +28,18 @@ jobs:
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
 
-      - name: commit push
+      - name: checkout gh-pages
         run: |
-          git checkout -b gh-pages
-          echo pages
-          ls pages
+          git checkout gh-pages
 
+      - name: clean
+        run: |
+          rm -r docs/mds docs/source
           rm -r raw .github
           rm .gitignore build.sh open.sh README.md requirements.txt 
 
+      - name: commit push
+        run: |
           git add .
-          
           git commit -m "Update doc"
           git push origin gh-pages
