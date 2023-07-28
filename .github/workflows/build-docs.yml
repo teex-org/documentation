@@ -30,19 +30,15 @@ jobs:
 
       - name: commit push
         run: |
-          rm -r docs/source docs/mds
-          ls
-          echo ---
-          ls docs
-          echo ---
+          git checkout -b gh-pages
+          echo pages
+          ls pages
+
           rm -r raw .github
-          ls 
-          echo ---
           rm .gitignore build.sh open.sh README.md requirements.txt 
-          ls
 
           git add docs/pages/
           git add docs/index.html
           
           git commit -m "Update doc"
-          git push origin main
+          git push origin gh-pages
