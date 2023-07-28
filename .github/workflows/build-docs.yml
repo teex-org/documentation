@@ -5,7 +5,8 @@ on:
   push:
     branches:
       - main
-
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,7 +36,5 @@ jobs:
           git add doc/home.html
           git add doc/rsc
           git commit -m "Update documentation"
-          echo 1
           git push -f origin gh-pages
-          echo 1
           git checkout main
