@@ -49,7 +49,7 @@ class Page:
         self.section, self.category, self.md_name =  md_path.replace('./docs/mds/','').split('/')
         self.display_name = rm_prefix_number(self.md_name.replace('.md',''))
         self.html_name = self.md_name.replace('.md','.html')
-        self.html_dir = f"docs/pages/{self.section}/{self.category}/"
+        self.html_dir = f"pages/{self.section}/{self.category}/"
         
     def get_nav(self,active=False):
         class_active = ""
