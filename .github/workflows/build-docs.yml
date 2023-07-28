@@ -40,6 +40,7 @@ jobs:
 
       - name: commit push
         run: |
+          rm .gitignore
           git add .
           git commit -m "Update doc"
           git push --force origin gh-pages
