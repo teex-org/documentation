@@ -20,6 +20,7 @@ jobs:
 
       - name: Build doc
         run: |
+          pip3 install Markdown
           ./build.sh
 
       - name: Set up Git
