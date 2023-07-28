@@ -13,10 +13,10 @@ Config.generate_head()
 
 
 html_dir        =   './pages/'
-md_dir          =   Config.root_dir + '/doc/mds/'
+md_dir          =   Config.root_dir + '/docs/mds/'
 
 def sort_path(page):
-    section, category, md_name =  page.replace('./doc/mds/','').split('/')
+    section, category, md_name =  page.replace('./docs/mds/','').split('/')
     r = 0
     nb_section=re.findall('^(.*?)-',section)
     if (nb_section != []) and (nb_section != ['']):
@@ -82,7 +82,7 @@ class Page:
 
 
 
-all_md_pages = os.popen(f"find ./doc/mds -mindepth 3 -maxdepth 3 -name '*.md'").read().split('\n')[:-1]
+all_md_pages = os.popen(f"find ./docs/mds -mindepth 3 -maxdepth 3 -name '*.md'").read().split('\n')[:-1]
 print(all_md_pages)
 all_md_pages = sorted(all_md_pages, key=sort_path)
 

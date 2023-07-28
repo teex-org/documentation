@@ -7,22 +7,27 @@ permissions:
   contents: write
   
 jobs:
-  create_branch:
+  clean_and_fill:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Clean directory
+        run: |
+          rm -rf docs/pages/*
+
+      - name: Build doc
+        run: |
+          ./build.sh
+
       - name: Set up Git
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
 
-      - name: Create and switch to the new branch
+      - name: commit push
         run: |
-          git checkout -b new-branch
-          cp open.sh new-branch/open.sh
-          git add new-branch/open.sh
-          git commit -m "Add open.sh to the new branch"
-          git push origin new-branch
+          git commit -m "Update doc"
+          git push origin main
