@@ -32,38 +32,35 @@
 <p>🧪 testing</p>
 <a href='../../.././pages/20-api/30-🧪 testing/10-test.html'>test</a>
 </nav><article>
-<h1 class='title'>project</h1><h3>[GET] /project/?email</h3>
+<h1 class='title'>project</h1><h4>[GET] /project/?email</h4>
 <pre data-lang='yaml'>{id: integer}</pre>
 
-<p>&gt;&gt;</p>
 <pre data-lang='yaml'>{   
     id:     string
     name:   string
 }</pre>
 
 <hr>
-<h3>[POST] /user/?email</h3>
+<h4>[POST] /user/?email</h4>
 <pre data-lang='yaml'>{name: string}</pre>
 
-<p>&gt;&gt;</p>
 <pre data-lang='yaml'>{id: new_id}</pre>
 
 <hr>
-<h3>[PUT] /project/?email</h3>
+<h4>[PUT] /project/?email</h4>
 <pre data-lang='yaml'>{
     id:     integer
     name:   string
 }</pre>
 
 <hr>
-<h3>[DELETE] /project/?email</h3>
+<h4>[DELETE] /project/?email</h4>
 <pre data-lang='yaml'>{id: integer}</pre>
 
 <hr>
-<h3>[GET] /project/users/?email</h3>
+<h4>[GET] /project/users/?email</h4>
 <pre data-lang='yaml'>{id: integer}</pre>
 
-<p>&gt;&gt;</p>
 <pre data-lang='yaml'>{
     id_project:     integer
     users : [
@@ -73,24 +70,23 @@
 }</pre>
 
 <hr>
-<h3>[PUT] /project/user/?email</h3>
+<h4>[PUT] /project/user/?email</h4>
 <pre data-lang='yaml'>{
     id:     integer
     email:  string
 }</pre>
 
 <hr>
-<h3>[PUT] /project/user/owner/?email</h3>
+<h4>[PUT] /project/user/owner/?email</h4>
 <pre data-lang='yaml'>{
     id:     integer
     email:  string
 }</pre>
 
 <hr>
-<h3>[GET] /project/lists/?email</h3>
+<h4>[GET] /project/lists/?email</h4>
 <pre data-lang='yaml'>{id: integer}</pre>
 
-<p>&gt;&gt;</p>
 <pre data-lang='yaml'>{
     id:     integer
     name:   string
@@ -111,7 +107,7 @@
 }</pre>
 
 <hr>
-<h3>[DELETE] /project/user?email</h3>
+<h4>[DELETE] /project/user?email</h4>
 <script>
 shiki
     .getHighlighter({

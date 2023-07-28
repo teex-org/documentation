@@ -33,7 +33,7 @@
 <a href='../../.././pages/20-api/30-🧪 testing/10-test.html'>test</a>
 </nav><article>
 <h1 class='title'>user</h1><h1>routes</h1>
-<h3>[GET] /user/<email></h3>
+<h4>[GET] /user/<email></h4>
 <pre data-lang='yaml'>{email: string}</pre>
 
 <p>&gt;&gt;</p>
@@ -43,15 +43,12 @@
 }</pre>
 
 <hr>
-<h3>[DELETE] /user/<email></h3>
-<hr>
-<h3>[PUT] /user</h3>
+<h4>[PUT] /user</h4>
 <pre data-lang='yaml'>{
     name:     string
     pwd:      string
 }</pre>
 
-<p>&gt;&gt;</p>
 <pre data-lang='yaml'>{
     projects : [
         {
@@ -61,6 +58,8 @@
     ]
 }</pre>
 
+<hr>
+<h4>[DELETE] /user/<email></h4>
 <script>
 shiki
     .getHighlighter({
