@@ -12,7 +12,7 @@ import markdown
 
 
 def generate_head():
-    head = f'<meta charset="UTF-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>{Config.doc_title}</title>\n'
+    head = f'<meta charset="UTF-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>{config["doc_title"]}</title>\n'
     for css in config['css']:
         head += f"<link rel='stylesheet' href='../../../rsc/{css}'>\n"
     for script in config['local_script']:
