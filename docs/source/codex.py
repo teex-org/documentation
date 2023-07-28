@@ -46,7 +46,7 @@ def rm_prefix_number(word):
 class Page:
     def __init__(self,md_path):
         self.md_path = md_path
-        self.section, self.category, self.md_name =  md_path.replace('./docs/mds/','').split('')
+        self.section, self.category, self.md_name =  md_path.replace('./docs/mds/','').split('/')
         self.display_name = rm_prefix_number(self.md_name.replace('.md',''))
         self.html_name = self.md_name.replace('.md','.html')
         self.html_dir = f"docs/pages/{self.section}/{self.category}/"
