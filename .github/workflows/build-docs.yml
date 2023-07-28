@@ -30,7 +30,7 @@ jobs:
 
       - name: checkout gh-pages
         run: |
-          git checkout gh-pages
+          git checkout -b gh-pages
 
       - name: clean
         run: |
