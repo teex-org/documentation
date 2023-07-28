@@ -4,6 +4,7 @@ class Config :
     css = ['style.css'] # path of css stylsheat FROM the root_dir
     local_script = ["shiki.js"] # path of importing script
     script = [""]
+    root_dir_web = "https://teex-org.github.io/documentation"
     head = ""
 
     def generate_head():
