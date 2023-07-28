@@ -1,1 +1,1 @@
-![applicative schéma of teex](rsc/img/applicatif.png)
+![applicative schéma of teex](applicatif.png)
