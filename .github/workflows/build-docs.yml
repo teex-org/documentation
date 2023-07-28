@@ -36,7 +36,7 @@ jobs:
         run: |
           rm -r docs/mds docs/source
           rm -r raw .github
-          rm .gitignore build.sh open.sh README.md requirements.txt 
+          rm .gitignore build.sh requirements.txt 
 
       - name: commit push
         run: |
