@@ -21,11 +21,9 @@ jobs:
       - name: Install dependencies
         run: pip3 install -r requirements.txt
 
-      - name: Run build script
-        run: ls
 
       - name: Run build script
-        run: bash /build.sh
+        run: ./build.sh
 
       - name: Deploy to gh-pages branch
         run: |
