@@ -39,26 +39,23 @@ check token in base
 get a new token 
 ```yaml
 {
-    email:  string
+    email:  string,
     pwd:    string    
 }
 
 ```
 ```yaml
-{
-    token : string
-}
+{token : string}
 ```
 -
 #### [POST] /auth/user
 create accunt and get new token
 ```yaml
 {
-    email:  string 
-    name:   string 
+    email:  string, 
+    name:   string, 
     pwd:    string 
 
-required: [email,name,pwd]
 }
 ```
 ```yaml

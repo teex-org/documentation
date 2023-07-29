@@ -6,7 +6,7 @@
 ```
 ```yaml
 {
-    email: string
+    email: string,
     name: string
 }
 ```
@@ -14,7 +14,7 @@
 #### [PUT] /user
  ```yaml
 {
-    name:     string
+    name:     string,
     pwd:      string
 }
 ```
@@ -22,7 +22,7 @@
 {
     projects : [
         {
-            id: int
+            id: int,
             name: string
         }
     ]

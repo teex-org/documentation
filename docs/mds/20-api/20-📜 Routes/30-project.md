@@ -36,9 +36,9 @@
 ```
 ```yaml
 {
-    id_project:     integer
+    id_project:     integer,
     users : [
-        email:      string
+        email:      string,
         rights:     string
     ]
 }
@@ -47,7 +47,7 @@
 #### [PUT] /project/user/?email
 ```yaml
 {
-    id:     integer
+    id:     integer,
     email:  string
 }
 ```
@@ -55,7 +55,7 @@
 #### [PUT] /project/user/owner/?email
 ```yaml
 {
-    id:     integer
+    id:     integer,
     email:  string
 }
 ```
@@ -67,18 +67,18 @@
 ```yaml
 {
     id:     integer
-    name:   string
+    name:   string,
     lists: [
-        id:     integer
-        name:   string 
+        id:     integer,
+        name:   string, 
         tasks : [
-            id:         integer        
-            name:       string     
-            tag:        integer              
-            priority:   integer        
+            id:         integer,        
+            name:       string,     
+            tag:        integer,              
+            priority:   integer,        
             state:      integer          
         ]
-    ]
+    ],
     users:[
         email: string
     ]

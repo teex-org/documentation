@@ -3,7 +3,7 @@
 #### [POST] /list/?email
 ```yaml
 {
-    name:       string
+    name:       string,
     id_project: integer
 }
 ```
@@ -14,7 +14,7 @@
 #### [PUT] /list/?email
 ```yaml
 {           
-    id:     integer
+    id:     integer,
     name:   string
 }
 ```
