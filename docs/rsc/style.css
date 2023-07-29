@@ -10,8 +10,12 @@
 }
 
 
-pre code span.line span, span.one, header select{
+header select{
     font-family: 'Spline Sans Mono', monospace !important;
+}
+pre,pre span, span.one{
+    font-family: 'Spline Sans Mono', monospace;
+    font-weight: 300;
 }
 h1.title{
     font-size: 60px;
@@ -56,7 +60,6 @@ p strong{
 
 
 header{
-
     height: fit-content;
     padding: 15px 30px;
     position: absolute;
@@ -168,33 +171,25 @@ nav p:hover{
 
 
 
-pre.shiki{
+
+/* ---- for pygments syntaxe highlight ---- */
+.linenos{
+    color: #5e5e5e !important; /* need overwrite here the linenos color*/
+}
+div.highlight{ 
+    color: white;
     overflow-y: hidden;
     overflow-x: scroll;
-    padding: 12px;
-    border-radius: 10px;
-    margin: 10px 0;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin: 8px 0;
 }
-pre.shiki::-webkit-scrollbar {
+
+div.highlight::-webkit-scrollbar {
     width: 0;
     display: none;
 }
 
-
-
-code {
-  counter-reset: step;
-  counter-increment: step 0;
-}
-code .line::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 1rem;
-  margin-right: 0.7rem;
-  display: inline-block;
-  text-align: right;
-  color: rgba(115,138,148,.4)
-}
 
 
 
@@ -256,7 +251,7 @@ div.info{
 
 span.one{
     color : black;
-    background-color: rgb(220, 220, 220,0.7);
+    background-color: rgb(233, 233, 233);
     padding: 2px 5px;
     border-radius: 4px;
     font-size: 14px;

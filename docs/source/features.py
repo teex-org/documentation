@@ -13,7 +13,6 @@ def treatment(page):
     page = single_code_bloc(page)
     page = hr(page)
     page = small_hr(page)
-    page = syntax_highlite_shiki_script(page)
     return page
 
 
@@ -60,20 +59,6 @@ def image(page):
     return re.sub(pattern, replacement, page)
 
 
-def syntax_highlite_shiki_script(page):
-    shiki = """shiki
-    .getHighlighter({
-        theme: 'dracula'
-    })
-    .then(highlighter =>{
-        document.querySelectorAll('pre').forEach(element => {
-        const language = element.dataset.lang || 'plaintext';
-        const code = highlighter.codeToHtml(element.innerText, language);
-        element.innerHTML = code
-        })
-    })"""
-
-    return page + f"<script>\n{shiki}\n</script>"
 
 
 # tag must be like "body" not "<body>"
@@ -82,16 +67,57 @@ def warp(src:str,tag:str):
 
 
 
-def code_bloc(page):
-    pattern = r"```([a-zA-Z]*)\s*([\s\S]+?)\s```"
-    replacement = r"<pre data-lang='\1'>\2</pre>\n"
-    return re.sub(pattern, replacement, page).replace("data-lang=''","data-lang='plaintext'")
-
 def single_code_bloc(page):
     pattern = r"`\s*([\s\S]+?)`"
     replacement = r"<span class='one'>\1</span>\n"
     return re.sub(pattern, replacement, page)
 
 
+
+
+
+
+
+##--------- Syntaxe hightlight
+from pygments import highlight
+from pygments.lexers import get_lexer_by_name
+from pygments.formatters import HtmlFormatter
+from pygments.style import Style
+from pygments.token import Token, Comment, Keyword, Name, String, Number, Operator, Punctuation, Text
+
+
+
+class CustomStyle(Style):
+    styles = {
+        Token:                  'bg:#1d1d1d',
+        Comment:                '#717171',
+        Keyword:                '#a98df3',
+        Name.Tag:               '#a98df3',
+        Name:                   '#ffffff',
+        Name.Class:             '#f7ccb2',
+        Name.Function:          '#69bcf9',
+        String:                 '#6fcd90',
+        Operator:               '#d99fce',
+        Punctuation:            '#929292',
+        Number:                 '#ea5b91'
+    }
+# creating .css associated -> rsc/pygments.css
+with open('rsc/pygments.css','w') as f:
+    f.write(HtmlFormatter(style=CustomStyle).get_style_defs('.highlight'))
+
+
+def code_bloc(page):
+    pattern = r"```([a-zA-Z]*)\s*([\s\S]+?)\s```"
+    res = re.findall(pattern,page)
+    for r in res:
+        highlighted = ""
+        if r[0] != '':
+            langage, code = r
+            highlighted = highlight(code, get_lexer_by_name(langage), HtmlFormatter(linenos=True))
+        else :
+            highlighted = r[1]
+        page = re.sub(pattern, highlighted, page,count=1)
+
+    return page
 
 
