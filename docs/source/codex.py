@@ -22,7 +22,7 @@ def generate_head():
     return "<head>\n" + head + "\n</head>"
 
 def sort_path(page):
-    section, category, md_name =  page.replace('./docs/mds/','').split('/')
+    section, category, md_name =  page.replace('./mds/','').split('/')
     r = 0
     nb_section=re.findall('^(.*?)-',section)
     if (nb_section != []) and (nb_section != ['']):
@@ -46,7 +46,7 @@ def rm_prefix_number(word):
 class Page:
     def __init__(self,md_path):
         self.md_path = md_path
-        self.section, self.category, self.md_name =  md_path.replace('./docs/mds/','').split('/')
+        self.section, self.category, self.md_name =  md_path.replace('./mds/','').split('/')
         self.display_name = rm_prefix_number(self.md_name.replace('.md',''))
         self.html_name = self.md_name.replace('.md','.html')
         self.html_path = f"../../../pages/{self.section}/{self.category}/{self.html_name}"
@@ -82,14 +82,13 @@ class Page:
 
         # create dir and create pages
         
-        os.makedirs("docs/pages/" + self.section+"/"+self.category , exist_ok=True) 
-        with open( "docs/pages/" + self.section+"/"+self.category+"/" + self.html_name ,'w') as html_file:
+        os.makedirs("pages/" + self.section+"/"+self.category , exist_ok=True) 
+        with open( "pages/" + self.section+"/"+self.category+"/" + self.html_name ,'w') as html_file:
             html_file.write(md)
 
 
 
-all_md_pages = os.popen(f"find ./docs/mds -mindepth 3 -maxdepth 3 -name '*.md'").read().split('\n')[:-1]
-print(all_md_pages)
+all_md_pages = os.popen(f"find ./mds -mindepth 3 -maxdepth 3 -name '*.md'").read().split('\n')[:-1]
 all_md_pages = sorted(all_md_pages, key=sort_path)
 
 pages = []
@@ -127,6 +126,7 @@ select += "</select>\n"
 for page in pages:
     nav = "<nav>" + tree[page.section]['nav'] + "</nav>"
     page.generate(select,nav)
+    print(f"{page.section}/{page.category}/{page.display_name}  ✓")
 
 # generate home.html page 
 home = f"""
@@ -140,9 +140,8 @@ home = f"""
 </body>
 """.replace('../../../','')
 
-os.makedirs('docs/', exist_ok=True) 
-with open('docs/index.html' ,'w') as html_file:
+
+with open('index.html' ,'w') as html_file:
     html_file.write(home)
 
 
-print("build")
