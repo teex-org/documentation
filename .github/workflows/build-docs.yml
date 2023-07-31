@@ -21,7 +21,7 @@ jobs:
       - name: Build doc
         run: |
           pip3 install -r requirements.txt
-          cd docs; ./build.sh
+          cd docs; ./build.sh; cd ..
 
       - name: Set up Git
         run: |
@@ -34,9 +34,9 @@ jobs:
 
       - name: clean
         run: |
-          rm -r docs/mds docs/source
+          rm -r docs/mds docs/source docs/build.sh
           rm -r raw .github
-          rm .gitignore build.sh requirements.txt 
+          rm .gitignore requirements.txt 
 
       - name: commit push
         run: |
