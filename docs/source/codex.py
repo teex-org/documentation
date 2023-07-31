@@ -7,10 +7,6 @@ import markdown
 
 
 ## create_root_dir = os.popen('pwd').read().replace('\n','') 
-
-
-
-
 def generate_head():
     head = f'<meta charset="UTF-8">\n<meta http-equiv="X-UA-Compatible" content="IE=edge">\n<meta name="viewport" content="width=device-width, initial-scale=1.0">\n<title>{config["doc_title"]}</title>\n'
     for css in config['css']:

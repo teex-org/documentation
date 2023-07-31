@@ -173,6 +173,10 @@ nav p:hover{
 
 
 /* ---- for pygments syntaxe highlight ---- */
+
+pre{
+    color: white;
+}
 .linenos{
     color: #5e5e5e !important; /* need overwrite here the linenos color*/
 }

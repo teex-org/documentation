@@ -11,8 +11,6 @@ Install the Python dependencies:
 ```bash
 # Unix OS based
 pip3 install -r requirements.txt
-# Windows
-pip install -r requirements.txt
 ```
 
 # Run

@@ -19,7 +19,6 @@ def treatment(page):
 
 
 
-
 def hr(page:str):
     pattern = r"---\n"
     replacement = r"<hr>\n"
@@ -104,7 +103,7 @@ class CustomStyle(Style):
 # creating .css associated -> rsc/pygments.css
 with open('rsc/pygments.css','w') as f:
     f.write(HtmlFormatter(style=CustomStyle).get_style_defs('.highlight'))
-
+#a19eff
 
 def code_bloc(page):
     pattern = r"```([a-zA-Z]*)\s*([\s\S]+?)\s```"
@@ -115,7 +114,7 @@ def code_bloc(page):
             langage, code = r
             highlighted = highlight(code, get_lexer_by_name(langage), HtmlFormatter(linenos=True))
         else :
-            highlighted = r[1]
+            highlighted = highlight(r[1], get_lexer_by_name('text'), HtmlFormatter(linenos=True))
         page = re.sub(pattern, highlighted, page,count=1)
 
     return page
