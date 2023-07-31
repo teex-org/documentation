@@ -1,1 +1,1 @@
-python3 -B ./source/codex.py
+python3 -B source/codex.py
