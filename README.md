@@ -1,2 +1,2 @@
-![Online docuemtantion](https://teex-org.github.io/documentation/)
+[Online docuemtantion](https://teex-org.github.io/documentation/)
 
