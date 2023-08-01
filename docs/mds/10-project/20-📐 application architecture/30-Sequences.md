@@ -1,1 +1,0 @@
-![Sequence diagram of backend](sequence_backend.png)

@@ -1,3 +1,0 @@
-**Teex is a collaborative task management application.** It allows users to manage task lists either individually or as a team. It is a small-scale application in the sense that it was initiated by only two people. This explains why the technologies used and the development of Teex may not be very well-suited for a professional level. Indeed, while the development takes performance, scalability, and cost into account, the priority is to finish the development of TeexV1 rather than creating an application capable of supporting millions of users.
--
-This documentation is designed to serve both as a general Wiki for the application and as technical documentation detailing the different routes and functionalities.

@@ -1,1 +1,0 @@
-![applicative schéma of teex](applicatif.png)
